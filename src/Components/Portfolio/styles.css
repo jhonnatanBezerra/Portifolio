@@ -24,3 +24,23 @@
 .portfolio__button:hover .button__icon {
   transform: translateX(0.25rem);
 }
+
+.swiper-button-prev {
+  left: 0;
+  z-index: 10;
+}
+
+.swiper-button-next {
+  right: 0;
+  z-index: 10;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets {
+  outline: none;
+}
