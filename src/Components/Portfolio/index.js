@@ -21,8 +21,7 @@ export const Portfolio = () => {
           <Swiper id="main" navigation pagination={{ dynamicBullets: true, clickable: true }} slidesPerView={1} initialSlide={0} loop /* autoplay={{ delay: 2500 }} */
             onInit={(swiper) => console.log('Inicio -> ', swiper.activeIndex)}
             onSlideChange={(swiper) => { console.log('change -> ', swiper.activeIndex) }}
-            onReachEnd={() => console.log('Fim das fotos')}
-          >
+            onReachEnd={() => console.log('Fim das fotos')}>
             {/* 1 */}
             <SwiperSlide key='01' >
               <div className="portfolio__content grid swiper-slide">

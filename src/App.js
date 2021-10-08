@@ -10,6 +10,11 @@ import { Skills } from "./Components/Skills";
 import { Qualifications } from "./Components/Qualifications";
 import { Services } from "./Components/Services";
 import { Portfolio } from "./Components/Portfolio";
+import { ProjectMind } from "./Components/ProjectMind";
+import { Testimonial } from "./Components/Testimonial";
+import { ContacteMe } from "./Components/ContacteMe";
+import { Footer } from "./Components/Footer";
+
 
 export const App = () => {
   return (
@@ -22,7 +27,11 @@ export const App = () => {
         <Qualifications />
         <Services />
         <Portfolio />
+        <ProjectMind />
+        <Testimonial />
+        <ContacteMe />
       </main>
+      <Footer />
     </>
   );
 }
