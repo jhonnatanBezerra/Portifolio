@@ -26,7 +26,7 @@
 }
 
 .nav__toggle {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   cursor: pointer;
 }
 
@@ -86,4 +86,24 @@
 /* show menu */
 .show-menu {
   bottom: 0;
+}
+
+.scroll-header {
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.nav__btns {
+  display: flex;
+  align-items: center;
+}
+
+.change-theme {
+  font-size: 1.125rem;
+  color: var(--title-color);
+  margin-right: var(--mb-1);
+  cursor: pointer;
+}
+
+.change-theme:hover {
+  color: var(--first-color);
 }

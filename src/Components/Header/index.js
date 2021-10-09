@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiHomeAlt, BiUser, BiFile, BiBriefcaseAlt2, BiImage, BiSend } from 'react-icons/bi';
+import { BsMoon, BsSun } from 'react-icons/bs';
 import { IoMdClose } from 'react-icons/io';
 import { AiOutlineAppstore } from 'react-icons/ai';
 
@@ -8,9 +9,51 @@ import './styles.css';
 export const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [changeTheme, setChangeTheme] = useState(false);
+
+
+  useEffect(() => {
+    loadTheme();
+
+    window.onscroll = () => {
+      setOffset(window.pageYOffset)
+    }
+
+  }, [offset]);
+
+  const handleChangeTheme = () => {
+    const darkTheme = 'dark-theme';
+    const currentTheme = document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+
+    if (currentTheme === 'light') {
+      document.body.classList.add(darkTheme.toString());
+      setChangeTheme(true);
+      localStorage.setItem('selected-theme', 'dark')
+    }
+
+    if (currentTheme == 'dark') {
+      document.body.classList.remove(darkTheme.toString());
+      setChangeTheme(false);
+      localStorage.setItem('selected-theme', 'light');
+    }
+
+  }
+
+  const loadTheme = () => {
+    const selectedTheme = localStorage.getItem('selected-theme');
+    if (selectedTheme === 'dark') {
+      setChangeTheme(true);
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.add('light');
+      setChangeTheme(false);
+    }
+
+  }
 
   return (
-    <header className="header" id="header">
+    <header className={`header ${offset >= 80 ? 'scroll-header' : ''}`} id="header">
       <nav className="nav container">
         <a href="#" className="nav__logo">Jhonnatan</a>
 
@@ -64,6 +107,13 @@ export const Header = () => {
         </div>
 
         <div className="nav__btns">
+          {changeTheme ?
+            <BsSun className="change-theme" onClick={handleChangeTheme} />
+            :
+            <BsMoon className="change-theme" onClick={handleChangeTheme} />
+
+          }
+
           <div className="nav__toggle" id="nav-toggle" onClick={() => setShowMenu(true)}>
             <AiOutlineAppstore />
           </div>
