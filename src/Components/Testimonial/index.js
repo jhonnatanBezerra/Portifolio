@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import testimonial1 from '../../Assets/imagens/testimonial1.jpg';
 import testimonial2 from '../../Assets/imagens/testimonial2.jpg';
 import testimonial3 from '../../Assets/imagens/testimonial3.jpg';
@@ -11,6 +11,10 @@ import { BsStar } from 'react-icons/bs';
 import './styles.css';
 
 export const Testimonial = () => {
+
+
+
+
   return (
     <section className="testimonial section">
       <h2 className="section__title">Testimonial</h2>
